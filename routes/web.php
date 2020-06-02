@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Page d'accueil
+// Route::get('books', 'FrontController@index')->name('home');
+
+// Page de test
+Route::get('test',function(){
+    return "Je suis un test";
+});
