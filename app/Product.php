@@ -8,6 +8,6 @@ class Product extends Model
 {
     // Un produit possède une catégorie ou plus
     public function categories(){
-        return $this->belongsToMany(Categories::class);
+        return $this->belongsTo(Categories::class);
     }
 }

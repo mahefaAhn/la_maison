@@ -11,6 +11,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        // Creation de 5 utilisateur à partir de la factory
+        factory(App\User::class,3)->create();
+
+        // Insérer les catégories 'Soldes', 'Homme' et 'Femme'
+        App\Category::insert([
+            [
+                'title'         => 'Soldes',
+                'description'   => 'Les soldes du moment',
+            ],
+            [
+                'title'         => 'Homme',
+                'description'   => 'Ce que nous vous proposons aux hommes',
+            ],
+            [
+                'title'         => 'Femme',
+                'description'   => 'Ce que nous vous proposons aux femmes',
+            ]
+        ]);
+        
+        // Création de produit
+        factory(App\Product::class,30)->create();
+
     }
 }
