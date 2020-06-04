@@ -13,11 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Page d'accueil
+Route::get('/', 'FrontController@index');
 Route::get('home', 'FrontController@index')->name('home');
 
 // Récupérer la liste par catégorie
@@ -25,6 +22,10 @@ Route::get('category/{id}', 'FrontController@showProductByCategory')->name('show
 
 // Récupérer tous les articles soldés
 Route::get('soldes/', 'FrontController@show_productSoldes')->name('show_productSoldes');
+
+// Récupérer les informations d'un produit
+Route::get('product/{id}', 'FrontController@showProduct')->name('show_product');
+
 
 
 // routes sécurisées 

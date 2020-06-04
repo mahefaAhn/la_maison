@@ -33,8 +33,6 @@ class FrontController extends Controller
             return Product::with('category')->paginate($this->paginate);
         });
 
-        dump($products);
-
         return view('front.index', [
             'products' => $products,
         ]);
