@@ -24,10 +24,16 @@ Route::get('category/{id}', 'FrontController@show_productByCategory')->name('sho
 Route::get('soldes/', 'FrontController@show_productSoldes')->name('show_productSoldes');
 
 // Récupérer les informations d'un produit
-Route::get('product/{id}', 'FrontController@showProduct')->name('show_product');
-
-
+Route::get('product/{id}', 'FrontController@show_product')->name('show_product');
 
 // routes sécurisées 
 // Ajouter les routes de connexion, déconnexion : automatique
 Auth::routes();
+
+// BACK OFFICE
+// Tableau de bord
+Route::get('admin', 'BackController@dashboard')->name('dashboard')->middleware('auth');
+// Ajouter un produit
+Route::get('add_product', 'BackController@add_product')->name('add_product')->middleware('auth');
+// Modifier les informations d'un produit
+Route::get('update_product/{id}', 'BackController@update_product')->name('update_product')->middleware('auth');
