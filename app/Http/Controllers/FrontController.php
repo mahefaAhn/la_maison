@@ -59,4 +59,14 @@ class FrontController extends Controller
             'titlePage'     => 'Liste de tous les produits pour '.$category->title.'s',
         ]);
     }
+
+    // Fonction pour afficher les informations d'un produit
+    public function show_product(int $id){
+        $product = Product::with('category')->find($id);
+
+        return view('front.product', [
+            'product'       => $product,
+            'titlePage'     => $product->title,
+        ]);
+    }
 }
