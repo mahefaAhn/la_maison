@@ -35,3 +35,15 @@
     color           : black;
     font-size       : 12pt ;
 }
+.product-code-solde {
+    color           : red;
+    font-size       : 12pt ;
+}
+
+/*PRODUCT INFO*/
+.product-info-image{
+    max-height          : 350px ;
+    border              : solid ;
+    border-color        : #343A40 ;
+    margin-bottom       : 10px ;
+}
