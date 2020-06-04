@@ -34,13 +34,19 @@ class FrontController extends Controller
         });
 
         return view('front.index', [
-            'products' => $products,
+            'products'      => $products,
+            'titlePage'     => 'Liste de tous les produits',
         ]);
     }
 
     // Fonction pour afficher tous les produits soldés
     public function show_productSoldes(){
+        $products = Product::where('code','=','solde')->paginate($this->paginate);
 
+        return view('front.index', [
+            'products'      => $products,
+            'titlePage'     => 'Liste de tous les produits soldés',
+        ]);
     }
 
     // Fonction pour afficher les produits par catégories

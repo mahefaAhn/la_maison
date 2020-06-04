@@ -1,0 +1,37 @@
+.noTxtDecoration{
+    text-decoration : none;
+}
+.noTxtDecoration:hover{
+    text-decoration : none;
+}
+.txtCenter{
+    text-align      : center ;
+}
+
+.product-list{
+    margin-top              : 20px;
+    margin-bottom           : 20px;
+}
+
+.product-div-block{
+    margin-bottom          :  20px;
+}
+
+.product-image-block{
+    height              : 250px ;
+    background-repeat   : no-repeat;
+    background-size     : cover;
+    border              : solid ;
+    border-color        : #343A40 ;
+    margin-bottom       : 10px ;
+}
+
+.product-name {
+    color       : black;
+    font-size   : 12pt ;
+    font-weight : bold ;
+}
+.product-price {
+    color           : black;
+    font-size       : 12pt ;
+}

@@ -1,37 +1,37 @@
 @extends('layouts.master')
 
 @section('title')
-Liste de tous les produits
+ {{ $titlePage }}
 @endsection
 
 @section('content')
-    
-{{-- pagination de Laravel --}}
-{{ $products->links() }}
+<div class="row">
+    <div class="col-md-8">
+        {{-- pagination de Laravel --}}
+        {{ $products->links() }}
+    </div>
+    <div class="col-md-4">
+        Hommes : 4 résultats<br>
+        Femmes : 4 résultats<br>
+    </div>
+</div>
 
-<ul class="list-group">
-@forelse($products as $product)
-    <li class="list-group-item">
-        <h4><a href="{{ route('show_product', $product->id) }}">{{ $product->title }}</a></h4>
-        <p>{{ $product->description}}</p>
-        <p>{{ $product->price }}</p>
-        <p>{{ $product->url_image }}</p>
-        <p>{{ $product->code }}</p>
-        <p>{{ $product->reference }}</p>
-        @if( is_null($product->url_image) == false)
-        <div class="row">
-           <div class="col-xs-6 col-md-3">
-                <a href="{{ route('show_product', $product->id) }}">
-                    <img width="171" src="{{ asset('images/' . $product->url_image ) }}" alt="{{ $product->title }}" />
-                </a>
-           </div>
-        </div>
-        @endif
-
-    </li>
-@empty
-@endforelse
-</ul>
+<div class="row product-list">
+    @forelse($products as $product)
+    <div class="col-md-3 product-div-block">
+        <a href="{{ route('show_product', $product->id) }}">
+            <div class="col-md-12 product-image-block" style="background-image : url({{ asset('images/' . $product->url_image ) }})">
+            </div>
+            <div class="col-md-12">
+                <span class="product-name noTxtDecoration txtCenter">{{ $product->title }}</span>
+                <span class="product-price noTxtDecoration txtCenter"><u>Prix :</u> {{ $product->price }} €</span>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-1"></div>
+    @empty
+    @endforelse
+</div>
 
 {{-- pagination de Laravel --}}
 {{ $products->links() }}
