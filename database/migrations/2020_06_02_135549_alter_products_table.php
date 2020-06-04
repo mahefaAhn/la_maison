@@ -14,8 +14,8 @@ class AlterProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table  ->foreignId('category_id') // respecter le type de la clé primaire de la table categories
-                    ->nullable() // Un livre peut ne pas avoir de genre
+            $table  ->foreignId('category_id')      // respecter le type de la clé primaire de la table categories
+                    ->nullable()                    // Un produit peut ne pas avoir de catégories
                     ->constrained() 
                     ->onDelete('SET NULL'); 
         });

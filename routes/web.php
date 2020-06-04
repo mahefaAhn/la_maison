@@ -18,9 +18,15 @@ Route::get('/', function () {
 });
 
 // Page d'accueil
-// Route::get('books', 'FrontController@index')->name('home');
+Route::get('home', 'FrontController@index')->name('home');
 
-// Page de test
-Route::get('test',function(){
-    return "Je suis un test";
-});
+// Récupérer la liste par catégorie
+Route::get('category/{id}', 'FrontController@showProductByCategory')->name('show_productByCategory');
+
+// Récupérer tous les articles soldés
+Route::get('soldes/', 'FrontController@show_productSoldes')->name('show_productSoldes');
+
+
+// routes sécurisées 
+// Ajouter les routes de connexion, déconnexion : automatique
+Auth::routes();

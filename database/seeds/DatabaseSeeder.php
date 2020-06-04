@@ -11,27 +11,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Creation de 5 utilisateur à partir de la factory
-        factory(App\User::class,3)->create();
-
-        // Insérer les catégories 'Soldes', 'Homme' et 'Femme'
-        App\Category::insert([
+        DB::table('users')->insert([
             [
-                'title'         => 'Soldes',
-                'description'   => 'Les soldes du moment',
+                'name'      => 'admin',
+                'email'     => 'admin@admin.fr',
+                'password'  => Hash::make('admin')
             ],
-            [
-                'title'         => 'Homme',
-                'description'   => 'Ce que nous vous proposons aux hommes',
-            ],
-            [
-                'title'         => 'Femme',
-                'description'   => 'Ce que nous vous proposons aux femmes',
-            ]
         ]);
         
-        // Création de produit
-        factory(App\Product::class,30)->create();
-
+        // la fonction factory de Laravel permet d'utiliser le facker définit
+        $this->call(ProductTableSeeder::class);
     }
 }

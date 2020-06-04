@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     // Un produit possède une catégorie ou plus
-    public function categories(){
-        return $this->belongsTo(Categories::class);
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }
