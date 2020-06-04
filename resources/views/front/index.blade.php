@@ -23,7 +23,7 @@
             <div class="col-md-12 product-image-block" style="background-image : url({{ asset('images/' . $product->url_image ) }})">
             </div>
             <div class="col-md-12">
-                <span class="product-name noTxtDecoration txtCenter">{{ $product->title }}</span>
+                <span class="product-name noTxtDecoration txtCenter">{{ $product->title }}</span><br>
                 <span class="product-price noTxtDecoration txtCenter"><u>Prix :</u> {{ $product->price }} €</span>
             </div>
         </a>

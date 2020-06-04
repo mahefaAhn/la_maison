@@ -51,6 +51,12 @@ class FrontController extends Controller
 
     // Fonction pour afficher les produits par catégories
     public function show_productByCategory(int $id){
+        $category   = Category::find($id);
+        $products   = $category->products()->paginate($this->paginate);
 
+        return view('front.index', [
+            'products'      => $products,
+            'titlePage'     => 'Liste de tous les produits pour '.$category->title.'s',
+        ]);
     }
 }

@@ -18,7 +18,7 @@ Route::get('/', 'FrontController@index');
 Route::get('home', 'FrontController@index')->name('home');
 
 // Récupérer la liste par catégorie
-Route::get('category/{id}', 'FrontController@showProductByCategory')->name('show_productByCategory');
+Route::get('category/{id}', 'FrontController@show_productByCategory')->name('show_productByCategory');
 
 // Récupérer tous les articles soldés
 Route::get('soldes/', 'FrontController@show_productSoldes')->name('show_productSoldes');
