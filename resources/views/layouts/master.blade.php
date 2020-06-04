@@ -13,6 +13,7 @@
     <!-- Our Custom CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/simple-sidebar.css')}}" rel="stylesheet">
+    <link href="{{asset('css/back-office.css')}}" rel="stylesheet">
     <!-- Gallery CSS -->
     <link href="{{asset('css/gallery.css')}}" rel="stylesheet">
     <!-- Font Awesome JS -->

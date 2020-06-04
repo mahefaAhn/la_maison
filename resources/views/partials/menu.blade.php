@@ -20,8 +20,8 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
         @if(Auth::check())
-            <a class="nav-link" style="color : white;" href="{{ route('dashboard') }}">Dashboard</a>
-            <a class="nav-link" style="color : white;" href="{{ route('add_product') }}">Ajouter un produit</a>
+            <a class="nav-link" style="color : white;" href="{{ route('admin') }}">Dashboard</a>
+            <a class="nav-link" style="color : white;" href="{{ route('product.create') }}">Ajouter un produit</a>
             <a class="nav-link" style="color : white;" href="{{ route('logout') }}">Se déconnecter</a>
         @else
             <a class="nav-link" style="color : white;" href="{{ route('login') }}">Se connecter</a>
