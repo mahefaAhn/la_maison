@@ -7,7 +7,7 @@ Liste de tous les produits
 @section('content')
     
 {{-- pagination de Laravel --}}
-{{-- $books->links() --}}
+{{ $products->links() }}
 
 <ul class="list-group">
 @forelse($products as $product)
@@ -34,5 +34,5 @@ Liste de tous les produits
 </ul>
 
 {{-- pagination de Laravel --}}
-{{-- $books->links() --}}
+{{ $products->links() }}
 @endsection
