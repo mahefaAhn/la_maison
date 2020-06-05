@@ -45,12 +45,24 @@
                     <div class="form-group">
                         <label for="size" class="col-sm-4 control-label">Taille</label>
                         <div class="col-sm-8">
-                            <select class="form-control" id="size" name="size">
-                                <option value="46" {{ ($product->size==='46')?'selected':'' }}>46</option>
-                                <option value="48" {{ ($product->size==='48')?'selected':'' }}>48</option>
-                                <option value="50" {{ ($product->size==='50')?'selected':'' }}>50</option>
-                                <option value="52" {{ ($product->size==='52')?'selected':'' }}>52</option>
-                            </select>
+                            <table>
+                                <tr>
+                                    <td>46</td>
+                                    <td><input type="checkbox" {{ (in_array("46", $product->getSizeArray()))?'checked':'' }} class="bo-input-radio" name="size" id="size" value="46"/></td>
+                                </tr>
+                                <tr>
+                                    <td>48</td>
+                                    <td><input type="checkbox" {{ (in_array("48", $product->getSizeArray()))?'checked':'' }} class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                </tr>
+                                <tr>
+                                    <td>50</td>
+                                    <td><input type="checkbox" {{ (in_array("50", $product->getSizeArray()))?'checked':'' }} class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                </tr>
+                                <tr>
+                                    <td>52</td>
+                                    <td><input type="checkbox" {{ (in_array("52", $product->getSizeArray()))?'checked':'' }} class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                </tr>
+                            </table>
                             @if($errors->has('size')) <span class="error bg-warning">{{ $errors->first('size')}}</span> @endif
                         </div>
                     </div>

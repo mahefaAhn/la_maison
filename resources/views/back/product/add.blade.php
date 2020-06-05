@@ -45,12 +45,24 @@
                     <div class="form-group">
                         <label for="size" class="col-sm-4 control-label">Taille</label>
                         <div class="col-sm-8">
-                            <select class="form-control" id="size" name="size">
-                                <option value="46">46</option>
-                                <option value="48">48</option>
-                                <option value="50">50</option>
-                                <option value="52">52</option>
-                            </select>
+                            <table>
+                                <tr>
+                                    <td>46</td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="46"/></td>
+                                </tr>
+                                <tr>
+                                    <td>48</td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                </tr>
+                                <tr>
+                                    <td>50</td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                </tr>
+                                <tr>
+                                    <td>52</td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                </tr>
+                            </table>
                             @if($errors->has('size')) <span class="error bg-warning">{{ $errors->first('size')}}</span> @endif
                         </div>
                     </div>
