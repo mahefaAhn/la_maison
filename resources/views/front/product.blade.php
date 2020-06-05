@@ -14,7 +14,7 @@
                 </li>
                 <li class="breadcrumb-item">
                     <!-- Code : Soldes / nouveau -->
-                    <a href="{{ route('show_productSoldes') }}">{{ucfirst($product->code)}}</a>
+                    <a href="{{ ($product->code==='solde')?route('show_productSoldes'):($product->code==='new')?route('show_productNew'):'' }}">{{ucfirst($product->code)}}</a>
                 </li>
                 <li class="breadcrumb-item">
                     <!-- Catégorie : Homme / Femme -->

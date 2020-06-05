@@ -32,47 +32,67 @@ class FrontController extends Controller
         $products = Cache::remember( $key , $minutes, function(){
             return Product::where('status','=','published')->with('category')->paginate($this->paginate);
         });
+        
+        $nbProduct_homme = Product::where('category_id','=','1')->where('status','=','published')->count();
+        $nbProduct_femme = Product::where('category_id','=','2')->where('status','=','published')->count();
 
         return view('front.index', [
-            'products'      => $products,
-            'titlePage'     => 'Liste de tous les produits',
+            'products'          => $products,
+            'titlePage'         => 'Liste de tous les produits',
+            'nbProduct_homme'   => $nbProduct_homme,
+            'nbProduct_femme'   => $nbProduct_femme,
         ]);
     }
 
     // Fonction pour afficher tous les produits soldés
     public function show_productSoldes(){
-        $products = Product::where('code','=','solde')->paginate($this->paginate);
+        $products = Product::where('code','=','solde')->where('status','=','published')->paginate($this->paginate);
+        
+        $nbProduct_homme = Product::where('category_id','=','1')->where('status','=','published')->where('code','=','solde')->count();
+        $nbProduct_femme = Product::where('category_id','=','2')->where('status','=','published')->where('code','=','solde')->count();
 
         return view('front.index', [
             'products'      => $products,
             'titlePage'     => 'Liste de tous les produits soldés',
+            'nbProduct_homme'   => $nbProduct_homme,
+            'nbProduct_femme'   => $nbProduct_femme,
         ]);
     }
 
     // Fonction pour afficher les nouveaux articles
     public function show_productNew(){
-        $products = Product::where('code','=','new')->paginate($this->paginate);
+        $products = Product::where('code','=','new')->where('status','=','published')->paginate($this->paginate);
+
+        $nbProduct_homme = Product::where('category_id','=','1')->where('status','=','published')->where('code','=','new')->count();
+        $nbProduct_femme = Product::where('category_id','=','2')->where('status','=','published')->where('code','=','new')->count();
 
         return view('front.index', [
             'products'      => $products,
             'titlePage'     => 'Liste de tous les nouveaux produits',
+            'nbProduct_homme'   => $nbProduct_homme,
+            'nbProduct_femme'   => $nbProduct_femme,
         ]);
     }
 
     // Fonction pour afficher les produits par catégories
     public function show_productByCategory(int $id){
         $category   = Category::find($id);
-        $products   = $category->products()->paginate($this->paginate);
+        $products   = $category->products()->where('status','=','published')->paginate($this->paginate);
+        
+        $nbProduct_homme = Product::where('category_id','=','1')->where('status','=','published')->with('category')->where('category_id','=',$id)->count();
+        $nbProduct_femme = Product::where('category_id','=','2')->where('status','=','published')->with('category')->where('category_id','=',$id)->count();
 
         return view('front.index', [
             'products'      => $products,
             'titlePage'     => 'Liste de tous les produits pour '.$category->title.'s',
+            'nbProduct_homme'   => $nbProduct_homme,
+            'nbProduct_femme'   => $nbProduct_femme,
         ]);
     }
 
     // Fonction pour afficher les informations d'un produit
     public function show_product(int $id){
-        $product = Product::with('category')->find($id);
+        $product = Product::with('category')->where('status','=','published')->find($id);
 
         return view('front.product', [
             'product'       => $product,
