@@ -49,6 +49,16 @@ class FrontController extends Controller
         ]);
     }
 
+    // Fonction pour afficher les nouveaux articles
+    public function show_productNew(){
+        $products = Product::where('code','=','new')->paginate($this->paginate);
+
+        return view('front.index', [
+            'products'      => $products,
+            'titlePage'     => 'Liste de tous les nouveaux produits',
+        ]);
+    }
+
     // Fonction pour afficher les produits par catégories
     public function show_productByCategory(int $id){
         $category   = Category::find($id);

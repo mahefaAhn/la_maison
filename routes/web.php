@@ -22,6 +22,9 @@ Route::get('category/{id}', 'FrontController@show_productByCategory')->name('sho
 // Récupérer tous les articles soldés
 Route::get('soldes/', 'FrontController@show_productSoldes')->name('show_productSoldes');
 
+// Récupérer tous les nouveaux articles
+Route::get('new/', 'FrontController@show_productNew')->name('show_productNew');
+
 // Récupérer les informations d'un produit
 Route::get('product_info/{id}', 'FrontController@show_product')->name('show_product');
 

@@ -6,6 +6,23 @@
 
 @section('content')
 <div class="row ">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('home') }}">Boutique</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <!-- Code : Soldes / nouveau -->
+                    <a href="{{ route('show_productSoldes') }}">{{ucfirst($product->code)}}</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <!-- Catégorie : Homme / Femme -->
+                    <a href="{{ route('show_productByCategory', $product->category->id) }}">{{$product->category->title}}</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
     <div class="col-md-6">
         <img src="{{ asset('images/' . $product->url_image ) }}" class="product-info-image"/>
     </div>
