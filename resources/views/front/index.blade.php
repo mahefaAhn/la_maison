@@ -14,8 +14,17 @@
         {{ $products->links() }}
     </div>
     <div class="col-md-4">
-        Hommes : 4 résultats<br>
-        Femmes : 4 résultats<br>
+        <?php
+            $nbProduct_homme = 0;
+            $nbProduct_femme = 0;
+            foreach($products as $product){
+                if($product->category->id=='1') $nbProduct_homme++;
+                if($product->category->id=='2') $nbProduct_femme++;
+            }
+        ?>
+        Sur cette page :<br>
+        Hommes : {{$nbProduct_homme}} résultat{{ ($nbProduct_homme==1)?'':'s' }}<br>
+        Femmes : {{$nbProduct_femme}} résultat{{ ($nbProduct_femme==1)?'':'s' }}<br>
     </div>
 </div>
 
