@@ -10,4 +10,12 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    // Fonction pour transformer les données de la taille en tableau
+    public function getSizeArray(){
+        $sizeString = $this->size;
+        $array    = explode(',',(explode(']',(explode('[',$sizeString)[1]))[0]));
+        array_multisort($array);
+        return $array;
+    }
 }

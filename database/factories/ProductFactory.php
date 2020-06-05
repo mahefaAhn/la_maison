@@ -14,7 +14,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'title'         => $faker->sentence(3),
         'description'   => $faker->paragraph(),
         'price'         => $faker->randomFloat(2,0,250),
-        'size'          => $faker->randomElement(['46','48','50','52']),
+        'size'          => '['.($faker->randomElement(['46','48','50','52'])).','.($faker->randomElement(['46','48','50','52'])).','.($faker->randomElement(['46','48','50','52'])).','.($faker->randomElement(['46','48','50','52'])).']',
         'status'        => $faker->randomElement(['published','unpublished']),
         'code'          => $faker->randomElement(['solde','new']),
         'reference'     => $faker->ean13()

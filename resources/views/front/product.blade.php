@@ -22,7 +22,13 @@
             </tr>
             <tr>
                 <th><u>Taille<u></th>
-                <td> </td>
+                <td>
+                    <select name="" class="form-control">
+                        @for ($i = 0; $i < sizeof($product->getSizeArray())-1 ; $i++)
+                            <option>{{ ($product->getSizeArray())[$i] }}</option>
+                        @endfor
+                    </select>
+                </td>
             </tr>
         </table>
     </div>

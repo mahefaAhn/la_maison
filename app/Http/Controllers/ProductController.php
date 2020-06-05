@@ -148,6 +148,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Storage::disk('local')->delete($product->url_image);
+        $product->delete();
+
+        Cache::flush();
+
+        return redirect()->route('product.index');
     }
 }
