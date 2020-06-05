@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Page d'accueil
-Route::get('/', 'FrontController@index');
-Route::get('home', 'FrontController@index')->name('home');
+Route::get('/', 'FrontController@index')->name('home');
 
 // Récupérer la liste par catégorie
 Route::get('category/{id}', 'FrontController@show_productByCategory')->name('show_productByCategory');
@@ -35,4 +34,4 @@ Auth::routes();
 Route::get('admin', 'ProductController@index')->name('admin')->middleware('auth');
 
 // On connecte l'ensemble des routes à nos actions du controller de resource ProductController
-Route::resource('product', 'ProductController')->middleware('auth');
+Route::resource('admin/product', 'ProductController')->middleware('auth');

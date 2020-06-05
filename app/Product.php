@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $fillable = [
+        'title'         ,
+        'description'   ,
+        'price'         ,
+        'size'          ,
+        'status'        ,
+        'code'          ,
+        'reference'     ,
+        'category_id'   ,
+        'url_image'     ,
+    ];
+
+    
     // Un produit possède une catégorie ou plus
     public function category(){
         return $this->belongsTo(Category::class);

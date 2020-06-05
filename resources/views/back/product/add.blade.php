@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+        <div class="col-md-12">
+            <h1>{{ $titlePage }}</h1>
+        </div>
         <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -31,15 +34,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="category" class="col-sm-4 control-label">Catégorie</label>
+                        <label for="category_id" class="col-sm-4 control-label">Catégorie</label>
                         <div class="col-sm-8">
-                            <select class="form-control" id="category" name="category">
+                            <select class="form-control" id="category_id" name="category_id">
                                 @forelse($categories as $id => $title)
                                 <option value="{{ $id }}">{{ $title }}</option>
                                 @empty
                                 @endforelse
                             </select>
-                            @if($errors->has('category')) <span class="error bg-warning">{{ $errors->first('category')}}</span> @endif
+                            @if($errors->has('category_id')) <span class="error bg-warning">{{ $errors->first('category_id')}}</span> @endif
                         </div>
                     </div>
                     <div class="form-group">
@@ -48,19 +51,19 @@
                             <table>
                                 <tr>
                                     <td>46</td>
-                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="46"/></td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size[]" id="size[]" value="46"/></td>
                                 </tr>
                                 <tr>
                                     <td>48</td>
-                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size[]" id="size[]" value="48"/></td>
                                 </tr>
                                 <tr>
                                     <td>50</td>
-                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size[]" id="size[]" value="50"/></td>
                                 </tr>
                                 <tr>
                                     <td>52</td>
-                                    <td><input type="checkbox" class="bo-input-radio" name="size" id="size" value="48"/></td>
+                                    <td><input type="checkbox" class="bo-input-radio" name="size[]" id="size[]" value="52"/></td>
                                 </tr>
                             </table>
                             @if($errors->has('size')) <span class="error bg-warning">{{ $errors->first('size')}}</span> @endif
@@ -95,7 +98,7 @@
                         <label for="code" class="col-sm-4 control-label">Code produit</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="code" name="code">
-                                <option value="soldes">Soldes</option>
+                                <option value="solde">Soldes</option>
                                 <option value="new">New</option>
                             </select>
                             @if($errors->has('code')) <span class="error bg-warning">{{ $errors->first('code')}}</span> @endif

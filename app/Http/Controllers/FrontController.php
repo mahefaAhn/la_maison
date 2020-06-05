@@ -30,7 +30,7 @@ class FrontController extends Controller
         // pour nettoyer le cache on a la commande
         // php artisan cache:clear
         $products = Cache::remember( $key , $minutes, function(){
-            return Product::with('category')->paginate($this->paginate);
+            return Product::where('status','=','published')->with('category')->paginate($this->paginate);
         });
 
         return view('front.index', [

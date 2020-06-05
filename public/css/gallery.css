@@ -47,3 +47,10 @@
     border-color        : #343A40 ;
     margin-bottom       : 10px ;
 }
+.product-edit-image{
+    max-height          : 200px ;
+    border              : solid ;
+    border-color        : #343A40 ;
+    margin-bottom       : 10px ;
+    margin-top          : 10px ;
+}

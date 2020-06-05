@@ -24,7 +24,6 @@
     @include('partials.menu')
 
     <main role="main" class="container">
-        <h1 class="mt-4">@yield('title')</h1>
         @yield('content')
     </main>
 
